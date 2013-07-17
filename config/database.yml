@@ -42,8 +42,7 @@ test:
   encoding: unicode
   database: happenings_project_test
   pool: 5
-  username: happenings_project
-  password:
+
 
 production:
   adapter: postgresql

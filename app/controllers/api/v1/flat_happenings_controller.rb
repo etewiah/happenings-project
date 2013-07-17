@@ -21,7 +21,8 @@ class Api::V1::FlatHappeningsController < ApplicationController
     @flat_happening = FlatHappening.new(params[:flat_happening])
 
     if @flat_happening.save
-      render json: @flat_happening, status: :created, location: @flat_happening
+      render json: @flat_happening, status: :created
+      # , location: @flat_happening
     else
       render json: @flat_happening.errors, status: :unprocessable_entity
     end

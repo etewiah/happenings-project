@@ -33,10 +33,10 @@ describe Api::V1::FlatHappeningsController do
   let(:valid_session) { {} }
 
   describe "GET index" do
-    it "assigns all api_v1_flat_happenings as @api_v1_flat_happenings" do
+    it "assigns all flat_happenings as @flat_happenings" do
       flat_happening = FlatHappening.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:api_v1_flat_happenings).should eq([flat_happening])
+      assigns(:flat_happenings).should eq([flat_happening])
     end
   end
 

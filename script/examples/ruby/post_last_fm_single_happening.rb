@@ -6,33 +6,55 @@ require 'rest-client'
 require 'uri'
 require 'pry'
  
-def parse_happenings
-	url = 'http://localhost:3000/data/last_fm_single_happening.json'
+def parse_happening
+	source_url = 'http://localhost:3000/data/last_fm_single_happening.json'
   post_url = 'http://localhost:3000/api/v1/flat_happenings'
-  happening = JSON.parse(RestClient.get(url))
+  happening = JSON.parse(RestClient.get(source_url))
   # binding.pry
-	RestClient.post post_url, :param1 => 'one', :nested => { :param2 => 'two' }
+
+	begin
+  	RestClient.post post_url,  :flat_happening => { 
+  		:name => happening['event']['title'] ,
+  		:language => 'en',
+  		:description_html => happening['event']['description'],
+  		:start_time => happening['event']['startDate'],
+  		:country => happening['event']['venue']['location']['country'],
+  		:city => happening['event']['venue']['location']['city'],
+  		:postal_code => happening['event']['venue']['location']['postalcode'],
+  		:address => happening['event']['venue']['location']['street'],
+  		:longitude => happening['event']['venue']['location']['geo:point']['geo:long'],
+  		:latitude => happening['event']['venue']['location']['geo:point']['geo:lat'],
+  		'images' => {
+  			'' => [{:url => happening['event']['image'][2]['#text']}]
+  			},
+  		:meta => happening['event'],
+  		:people => happening['event']['artists'],
+  		:tags => happening['event']['tags']['tag'],
+  		'urls' => {
+						  	'' =>	 [
+						  			{
+						  				:name => 'website', :url => happening['event']['website']
+						  			},
+						  			{
+						  				:name => 'source', :url => happening['event']['url']
+						  			}]
+						  	},
+			:classification => "scrob",
+  		:namespaced_id => "scrob_" + happening['event']['id'],
+  		:venue => happening['event']['venue'],
+  		:cancelled => happening['event']['cancelled']
+
+  	}
+  	# nested hash format above is rather strange as I had to use to workaround a prob with RestClient:
+  	# http://stackoverflow.com/questions/6436110/restclient-strips-out-the-array-of-hashes-parameter-with-just-the-last-hash
+  	# might need to add street (where I now have address..)
+	rescue => e
+		binding.pry
+	  e.response
+	end
 
 end
 
-def get_imgs(term)
-  url='https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q='+URI.escape(term)
-binding.pry
-  imgs = JSON.parse(RestClient.get(url))
-  for img in imgs["responseData"]["results"]
-      puts img["url"]
-  end   
-end
 
-parse_happenings
+parse_happening
 
-=begin
- 
-get_imgs("yoda") would print
- 
-http://images.wikia.com/starwars/images/e/e0/Yoda_SWSB.jpg
-http://upload.wikimedia.org/wikipedia/en/thumb/9/96/CGIYoda.jpg/200px-CGIYoda.jpg
-http://i.dailymail.co.uk/i/pix/2010/10/06/article-1318093-0B803914000005DC-954_306x423.jpg
-http://altjapan.typepad.com/.a/6a00d8341bfd2253ef00e55426d7bb8834-320wi
- 
-=end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130717105639) do
+ActiveRecord::Schema.define(:version => 20130717190122) do
 
   create_table "flat_happenings", :force => true do |t|
     t.string   "classification"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20130717105639) do
     t.boolean  "cancelled"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.string   "namespaced_id"
   end
 
 end

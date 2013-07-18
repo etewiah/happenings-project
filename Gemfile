@@ -30,7 +30,9 @@ gem 'active_model_serializers'
 gem 'rack-cors', require: false
 
 
-
+group :test do 
+	gem 'factory_girl_rails'
+end
 
 group :test, :development do
   gem 'rspec-rails', require: false

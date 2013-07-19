@@ -6,6 +6,7 @@ class FlatHappening < ActiveRecord::Base
 	serialize :tags, JSON
 	serialize :people, JSON
 	serialize :venue, JSON
+	serialize :meta, JSON
 	validates :name, :presence => true
 	validates :city, :presence => true
 	validates :country, :presence => true

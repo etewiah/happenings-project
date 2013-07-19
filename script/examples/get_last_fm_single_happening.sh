@@ -1,5 +1,5 @@
 #!/bin/bash
-# usage sh get_last_fm.sh 11c7b0fa1ebea56f97d90b605e6ace2e
+# usage sh get_last_fm.sh **secrettoken**
 if (( $# < 1 )); then
     echo "You must supply an access token."
     exit 1

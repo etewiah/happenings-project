@@ -1,64 +1,15 @@
 == Welcome to the Happenings Project
 
-Rails is a web-application framework that includes everything needed to create
-database-backed web applications according to the Model-View-Control pattern.
+The idea behind the Happenings Project is to make it easy to share information about happenings ( events such as concerts, sports competitions ).  
 
-This pattern splits the view (also called the presentation) into "dumb"
-templates that are primarily responsible for inserting pre-built data in between
-HTML tags. The model contains the "smart" domain objects (such as Account,
-Product, Person, Post) that holds all the business logic and knows how to
-persist themselves to a database. The controller handles the incoming requests
-(such as Save New Account, Update Product, Show Post) by manipulating the model
-and directing data to the view.
+I am starting off with the simplest solution possible - an API server to which happenings can be posted and which serves happenings in the JSON format.  The first iteration will be based on my naive assumptions about what a happening should contain and how it should be stored and retrieved.  I know I will make many mistakes here so I want to invite contributions from the community from the start.  Please let me know what I am doing wrong and help me to improve.
 
-In Rails, the model is handled by what's called an object-relational mapping
-layer entitled Active Record. This layer allows you to present the data from
-database rows as objects and embellish these data objects with business logic
-methods. You can read more about Active Record in
-link:files/vendor/rails/activerecord/README.html.
+My long term vision is that many people will host instances of this API server and people wishing to develop apps that need data about happenings can easily obtain it.  I envision that I will eventually need to figure out some way of enabling server to server information exchange to propagate happenings.  I really don't know right now how I will implement that but I am looking forward to the challenge.  
 
-The controller and view are handled by the Action Pack, which handles both
-layers by its two parts: Action View and Action Controller. These two layers
-are bundled in a single package due to their heavy interdependence. This is
-unlike the relationship between the Active Record and Action Pack that is much
-more separate. Each of these packages can be used independently outside of
-Rails. You can read more about Action Pack in
-link:files/vendor/rails/actionpack/README.html.
-
-
-== Getting Started
-
-1. At the command prompt, create a new Rails application:
-       <tt>rails new myapp</tt> (where <tt>myapp</tt> is the application name)
-
-2. Change directory to <tt>myapp</tt> and start the web server:
-       <tt>cd myapp; rails server</tt> (run with --help for options)
-
-3. Go to http://localhost:3000/ and you'll see:
-       "Welcome aboard: You're riding Ruby on Rails!"
-
-4. Follow the guidelines to start developing your application. You can find
-the following resources handy:
-
-* The Getting Started Guide: http://guides.rubyonrails.org/getting_started.html
-* Ruby on Rails Tutorial Book: http://www.railstutorial.org/
+I will update the progress of this project on the [wiki](https://github.com/etewiah/happenings-project/wiki/_pages).  I will also post ocassional random thoughts like [this](http://redemptionthongs.wordpress.com/2013/07/16/making-events-easier-to-discover-on-the-internet/) on my blog.
 
 
 
+## License
 
-
-== Debugger
-
-Debugger support is available through the debugger command when you start your
-Mongrel or WEBrick server with --debugger. This means that you can break out of
-execution at any point in the code, investigate and change the model, and then,
-resume execution! You need to install ruby-debug to run the server in debugging
-mode. With gems, use <tt>sudo gem install ruby-debug</tt>. Example:
-
-  class WeblogController < ActionController::Base
-    def index
-      @posts = Post.all
-      debugger
-    end
-  end
-
+The Happenings Project is released under the [MIT License](http://www.opensource.org/licenses/MIT).

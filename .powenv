@@ -10,3 +10,4 @@ export MY_RUBY_HOME ; MY_RUBY_HOME='/Users/etewiah/.rvm/rubies/ruby-2.0.0-p195'
 export IRBRC ; IRBRC='/Users/etewiah/.rvm/rubies/ruby-2.0.0-p195/.irbrc'
 unset MAGLEV_HOME
 unset RBXOPT
+export RAILS_ENV=development

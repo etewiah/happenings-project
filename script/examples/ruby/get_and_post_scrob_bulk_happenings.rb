@@ -6,11 +6,18 @@ require 'rest-client'
 require 'uri'
 require 'pry'
  
+def parse_args
+v1 = ARGV[0]
+v2 = ARGV[1]
+puts v1
+puts v2
+end
 
 def parse_happening
-	source_url = 'http://happenings-project.dev/data/last_fm_happenings_search_result.json'
+	source_url = 'http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=madrid&limit=70&api_key=' +
+	ARGV[0] +	'&format=json'
 	# 'http://localhost:3000/data/last_fm_happenings_search_result.json'
-  post_url = 'http://localhost:3000/api/v1/flat_happenings'
+  post_url = 'http://happenings-project.dev/api/v1/flat_happenings'
   happenings = JSON.parse(RestClient.get(source_url))
 
 	begin

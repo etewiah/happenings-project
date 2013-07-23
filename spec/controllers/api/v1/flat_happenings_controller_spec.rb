@@ -24,7 +24,9 @@ describe Api::V1::FlatHappeningsController do
   # FlatHappening. As you add validations to FlatHappening, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) { {  
-      name: "testicles"
+      name: "testicles",
+      city: "Madrid",
+      country: "Spain"
     } }
 
   # This should return the minimal set of values that should be in the session

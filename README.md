@@ -13,3 +13,5 @@ I will update the progress of this project on the [wiki](https://github.com/etew
 ## License
 
 The Happenings Project is released under the [MIT License](http://www.opensource.org/licenses/MIT).
+
+![](https://d2weczhvl823v0.cloudfront.net/etewiah/happenings-project/trend.png)

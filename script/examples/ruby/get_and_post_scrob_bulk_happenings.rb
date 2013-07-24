@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby 
  
+# usage:
+# ruby get_and_post_scrob_bulk_happenings.rb **access_token**
 require 'rubygems'
 require 'json'
 require 'rest-client' 
@@ -14,10 +16,11 @@ puts v2
 end
 
 def parse_happening
-	source_url = 'http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=madrid&limit=70&api_key=' +
+	source_url = 'http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=berlin&limit=70&api_key=' +
 	ARGV[0] +	'&format=json'
 	# 'http://localhost:3000/data/last_fm_happenings_search_result.json'
-  post_url = 'http://happenings-project.dev/api/v1/flat_happenings'
+  post_url = "http://happenings-project.herokuapp.com/api/v1/flat_happenings"
+  # 'http://happenings-project.dev/api/v1/flat_happenings'
   happenings = JSON.parse(RestClient.get(source_url))
 
 	begin

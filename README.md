@@ -8,7 +8,7 @@ My long term vision is that many people will host instances of this API server a
 
 I will update the progress of this project on the [wiki](https://github.com/etewiah/happenings-project/wiki/_pages).  I will also post ocassional random thoughts like [this](http://redemptionthongs.wordpress.com/2013/07/16/making-events-easier-to-discover-on-the-internet/) on my blog.
 
-
+An example happenings project server will be hosted here [http://happenings-project.herokuapp.com](http://happenings-project.herokuapp.com)
 
 ## License
 

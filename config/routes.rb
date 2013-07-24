@@ -6,6 +6,11 @@ HappeningsProject::Application.routes.draw do
     end
   end
 
+  %w[home about privacy].each do |page|
+    get page, controller: 'info', action: page
+  end
+
+  root :to => "info#home"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

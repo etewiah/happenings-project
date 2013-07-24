@@ -39,3 +39,7 @@ group :test, :development do
   gem 'pry-rails'
   gem 'pry-nav'
 end
+
+group :development do
+  gem 'guard-rspec'
+end

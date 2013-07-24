@@ -1,0 +1,102 @@
+
+<% content_for :head do %>
+<meta charset='utf-8'>
+<meta name="fragment" content="!">
+
+<meta content='<%= ENV['APPLICATION_NAME' ] %>
+' itemprop='name'>
+<meta content='<%= ENV['APPLICATION_NAME' ] %>
+is the best place find, create and share events.' itemprop='description'>
+<meta content='<%= ENV['APPLICATION_NAME' ] %>
+,crowdsource,events,spain,madrid,barcelona,valencia,pintrest' name='keywords'>
+<link href='http://fonts.googleapis.com/css?family=Jolly+Lodger' rel='stylesheet' type='text/css'>
+<% end %>
+
+<div id="seo-status" data-status="{{ status }}" ></div>
+<!-- Above to be used to indicate when page is ready to render for robots. -->
+
+<div class="container" >
+
+	<%= render "info/top_bar" %>
+
+	<div class="row small-12 columns" 
+    style="padding-top:20px;background:white;min-height: 1000px">
+		<div style="margin-top:10px"  ng-view>
+
+			<div class="large-12 columns">
+
+				<h3>What's this all about?</h3>
+				<p>
+					The basic premise of this site is that it is still too difficult to organise social events on the web.  I want to create a site where anyone can quickly create a space to plan social events with friends.
+</p><hr>
+
+				<h3>Use case</h3>
+				<p>
+					The idea for this site came to me when I was in London for a long weekend and wanted to meet up with half a dozen friends who I don't get to see often enough.  After several emails back and forth I only managed to catch up with 2 friends.
+				</p><p>
+				With <%= ENV['APPLICATION_NAME' ] %>, I could easily have created a space where all my friends could see my plans as they developed.</p>
+				<hr>
+
+				<h3>What's wrong with facebook?</h3>
+				<p>I find facebook too restrictive for scenarios like this.  Often, social events involve people you don't need to be friends with on facebook - think office drinks or sunday football in the park.
+				</p><p>
+				With <%= ENV['APPLICATION_NAME' ] %>, you can make your plans as open or restrictive as you wish.  If you are making plans for a city you don't know, you can create a space where you invite people to give you advice.  There is no obligation to create an account or provide private information like your email.
+				</p>
+				<p>
+		
+				</p>
+				<hr>
+
+				<h3>Why no sign-up option?</h3>
+				<p>
+					Signing up for websites puts people off big-time and I don't really need to know who you are.  Just go ahead and get planning....
+				</p><p>
+				Eventually I might add a sign-up option so people can manage their plans more easily but for now - Keep It Simple, S...am.</p>
+				<hr>
+
+
+				<h3>The technology</h3>
+				<p>
+					This site is built on Angular JS, a powerful javascript framework that has allowed me to create a pretty fast user experience.
+					Initially I hosted it on heroku but I finally decided to take the plunge and deploy it to a dedicated VPS.  Its been a lot of hard work but I think it will be worth it in the end.
+</p>
+<p>
+The back-end is Ruby On Rails with mongodb.  Its been a blast creating this app and I've learnt a shed load.  Hope to put out some blog posts soon about my experiences.
+
+				</p>
+
+				<hr>
+
+				<h3>Feedback</h3>
+				<p>
+Right now the site is very much in beta and I'm aware of a few things that don't work very well. The aim in putting this out so early on is to get some feedback. Please <strong> feel free to drop me a line </strong> at africajam@hotmail.com or call me on 0034 672 550 305 with any comments / feedback that you might have.
+				</p>
+				<p>
+				I am particularly keen to hear from <strong> anyone who might want to collaborate </strong> with me on this site.  Its got a lot of potential which will take me a while to develop so I could do with some help.				
+				</p>
+
+			</div>
+
+		</div>
+
+	</div>
+	<!-- end content div -->
+
+	<div class="small-12 columns" >
+		<div class="small-4 columns">
+			<div id="twtr-search-widget" style="right:1%"></div>
+			<!-- div above is populated by directives within various modules -->
+			<link href="http://widgets.twimg.com/j/1/widget.css" type="text/css" rel="stylesheet"></div>
+		<div class="small-8 columns">
+			<div id="disqus_thread"></div>
+		</div>
+	</div>
+
+</div>
+</div>
+
+<% content_for :javascripts do %>
+<%= google_analytics_js  %>
+<%= include_gon %>
+
+<% end %>

@@ -39,6 +39,7 @@ describe Api::V1::FlatHappeningsController do
       flat_happening = FlatHappening.create! valid_attributes
       get :index, {}, valid_session
       assigns(:flat_happenings).should eq([flat_happening])
+      # binding.pry
     end
   end
 
@@ -73,23 +74,23 @@ describe Api::V1::FlatHappeningsController do
         }.to change(FlatHappening, :count).by(1)
       end
 
-      it "assigns a newly created api_v1 as @api_v1" do
+      it "assigns a newly created flat_happening as @flat_happening" do
         post :create, {:flat_happening => valid_attributes}, valid_session
         assigns(:flat_happening).should be_a(FlatHappening)
         assigns(:flat_happening).should be_persisted
       end
 
-      # it "redirects to the created api_v1" do
+      # it "redirects to the created flat_happening" do
       #   post :create, {:flat_happening => valid_attributes}, valid_session
       #   response.should redirect_to(FlatHappening.last)
       # end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved api_v1 as @api_v1" do
+      it "assigns a newly created but unsaved flat_happening as @flat_happening" do
         # Trigger the behavior that occurs when invalid params are submitted
-        FlatHappening.any_instance.stub(:save).and_return(false)
-        post :create, {:flat_happening => {  }}, valid_session
+        # FlatHappening.any_instance.stub(:save).and_return(false)
+        post :create, {:flat_happening => {}}, valid_session
         assigns(:flat_happening).should be_a_new(FlatHappening)
       end
     end
@@ -97,53 +98,53 @@ describe Api::V1::FlatHappeningsController do
 
   # describe "PUT update" do
   #   describe "with valid params" do
-  #     it "updates the requested api_v1" do
+  #     it "updates the requested flat_happening" do
   #       flat_happening = FlatHappening.create! valid_attributes
-  #       # Assuming there are no other api_v1_flat_happenings in the database, this
+  #       # Assuming there are no other flat_happenings in the database, this
   #       # specifies that the FlatHappening created on the previous line
   #       # receives the :update_attributes message with whatever params are
   #       # submitted in the request.
   #       FlatHappening.any_instance.should_receive(:update_attributes).with({ "these" => "params" })
-  #       put :update, {:id => flat_happening.to_param, :api_v1 => { "these" => "params" }}, valid_session
+  #       put :update, {:id => flat_happening.to_param, :flat_happening => { "these" => "params" }}, valid_session
   #     end
 
-  #     it "assigns the requested api_v1 as @api_v1" do
+  #     it "assigns the requested flat_happening as @flat_happening" do
   #       flat_happening = FlatHappening.create! valid_attributes
-  #       put :update, {:id => flat_happening.to_param, :api_v1 => valid_attributes}, valid_session
-  #       assigns(:api_v1).should eq(flat_happening)
+  #       put :update, {:id => flat_happening.to_param, :flat_happening => valid_attributes}, valid_session
+  #       assigns(:flat_happening).should eq(flat_happening)
   #     end
 
-  #     it "redirects to the api_v1" do
+  #     it "redirects to the flat_happening" do
   #       flat_happening = FlatHappening.create! valid_attributes
-  #       put :update, {:id => flat_happening.to_param, :api_v1 => valid_attributes}, valid_session
+  #       put :update, {:id => flat_happening.to_param, :flat_happening => valid_attributes}, valid_session
   #       response.should redirect_to(flat_happening)
   #     end
   #   end
 
   #   describe "with invalid params" do
-  #     it "assigns the api_v1 as @api_v1" do
+  #     it "assigns the flat_happening as @flat_happening" do
   #       flat_happening = FlatHappening.create! valid_attributes
   #       # Trigger the behavior that occurs when invalid params are submitted
   #       FlatHappening.any_instance.stub(:save).and_return(false)
-  #       put :update, {:id => flat_happening.to_param, :api_v1 => {  }}, valid_session
-  #       assigns(:api_v1).should eq(flat_happening)
+  #       put :update, {:id => flat_happening.to_param, :flat_happening => {  }}, valid_session
+  #       assigns(:flat_happening).should eq(flat_happening)
   #     end
 
   #   end
   # end
 
   # describe "DELETE destroy" do
-  #   it "destroys the requested api_v1" do
+  #   it "destroys the requested flat_happening" do
   #     flat_happening = FlatHappening.create! valid_attributes
   #     expect {
   #       delete :destroy, {:id => flat_happening.to_param}, valid_session
   #     }.to change(FlatHappening, :count).by(-1)
   #   end
 
-  #   it "redirects to the api_v1_flat_happenings list" do
+  #   it "redirects to the flat_happenings list" do
   #     flat_happening = FlatHappening.create! valid_attributes
   #     delete :destroy, {:id => flat_happening.to_param}, valid_session
-  #     response.should redirect_to(api_v1_flat_happenings_url)
+  #     response.should redirect_to(flat_happenings_url)
   #   end
   # end
 

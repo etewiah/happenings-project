@@ -8,12 +8,12 @@ require 'rest-client'
 require 'uri'
 require 'pry'
  
-def parse_args
-v1 = ARGV[0]
-v2 = ARGV[1]
-puts v1
-puts v2
-end
+# def parse_args
+# v1 = ARGV[0]
+# v2 = ARGV[1]
+# puts v1
+# puts v2
+# end
 
 def parse_happening
 	source_url = 'http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=berlin&limit=70&api_key=' +

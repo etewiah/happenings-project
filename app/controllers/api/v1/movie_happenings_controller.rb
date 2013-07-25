@@ -1,4 +1,4 @@
-class MovieHappeningsController < ApplicationController
+class Api::V1::MovieHappeningsController < ApplicationController
   # GET /movie_happenings
   # GET /movie_happenings.json
   def index

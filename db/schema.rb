@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130717190122) do
+ActiveRecord::Schema.define(:version => 20130725172851) do
 
   create_table "flat_happenings", :force => true do |t|
     t.string   "classification"
@@ -42,6 +42,46 @@ ActiveRecord::Schema.define(:version => 20130717190122) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.string   "namespaced_id"
+  end
+
+  create_table "movie_happenings", :force => true do |t|
+    t.string   "movie_name"
+    t.string   "venue_name"
+    t.integer  "movie_id"
+    t.integer  "movie_venue_id"
+    t.date     "date"
+    t.text     "urls"
+    t.text     "show_times"
+    t.string   "city"
+    t.string   "country"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "movie_venues", :force => true do |t|
+    t.string   "name"
+    t.text     "description_text"
+    t.text     "description_html"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.text     "address"
+    t.string   "city"
+    t.string   "region"
+    t.string   "postal_code"
+    t.string   "country"
+    t.text     "urls"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "movies", :force => true do |t|
+    t.string   "name"
+    t.text     "description_text"
+    t.text     "description_html"
+    t.text     "tags"
+    t.text     "urls"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end

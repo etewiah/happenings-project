@@ -1,15 +1,12 @@
 HappeningsProject::Application.routes.draw do
 
-
-  resources :movie_venues, except: [:new, :edit]
-
-  resources :movies, except: [:new, :edit]
-
-  resources :movie_happenings, except: [:new, :edit]
-
   namespace :api do
     namespace :v1 do
       resources :flat_happenings, except: [:new, :edit]
+      resources :movie_venues, except: [:new, :edit]
+
+      resources :movies, except: [:new, :edit]
+
       resources :movie_happenings, except: [:new, :edit]
     end
   end

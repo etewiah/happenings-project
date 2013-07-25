@@ -16,28 +16,35 @@ require 'pry'
 doc = Nokogiri::HTML(open("http://www.google.co.uk/movies?near=madrid&hl=en&sort=1"))
 
 
-movie_happening = {}
-
 doc.css('.movie').each	do |movie|
 
-	movie_happening["movie_href"] = movie.css('h2 a').attribute('href').value
-	movie_happening["movie_name"] = movie.css('h2').text
-	movie_happening["movie_length"] = movie.css('.info').text
+	# movie_happening["movie_href"] = movie.css('h2 a').attribute('href').value
+	# movie_happening["movie_name"] = movie.css('h2').text
+	# movie_happening["movie_length"] = movie.css('.info').text
 
-binding.pry
+
 
 
 	movie.css('.showtimes .theater').each do |showtime|
+
+		movie_happening = {}
+		movie_happening["movie_href"] = movie.css('h2 a').attribute('href').value
+		movie_happening["movie_name"] = movie.css('h2').text
+		movie_happening["movie_length"] = movie.css('.info').text
+
+
 		movie_happening["venue_name"] = showtime.css('.name').text
 		movie_happening["venue_address"] = showtime.css(".address").text
 		
+
 		times = []
 		showtime.css('.times a').each	do |time|
-			times.push time 
+			times.push time.text
 		end
 
   	movie_happening["times"] = times
 
+binding.pry
 
 	end
 

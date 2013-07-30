@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130726000147) do
+ActiveRecord::Schema.define(:version => 20130730092424) do
 
   create_table "flat_happenings", :force => true do |t|
     t.string   "classification"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20130726000147) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.string   "namespaced_id"
+    t.string   "venue_name"
   end
 
   create_table "movie_happenings", :force => true do |t|

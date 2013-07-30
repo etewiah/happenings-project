@@ -1,6 +1,10 @@
 class FlatHappening < ActiveRecord::Base
 	before_save :lowercase
-  attr_accessible :address, :cancelled, :city, :classification, :country, :description_html, :description_text, :end_time, :images, :language, :latitude, :longitude, :meta, :name, :people, :postal_code, :recurring, :recurring_details, :region, :start_time, :tags, :tickets, :timezone, :urls, :venue, :namespaced_id
+  attr_accessible :address, :cancelled, :city, :classification, :country, 
+  	:description_html, :description_text, :end_time, :images, :language, 
+  	:latitude, :longitude, :meta, :name, :people, :postal_code, :recurring, 
+  	:recurring_details, :region, :start_time, :tags, :tickets, :timezone, 
+  	:urls, :venue, :namespaced_id, :venue_name
 
 	serialize :images, JSON
 	serialize :urls, JSON
